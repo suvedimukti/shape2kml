@@ -1,0 +1,16 @@
+Package: shape2kml
+Type: Package
+Title: Converts Polygon file or files in a direcoty and convert them into
+  DJI pilot2 app accepted kml format
+Version: 0.1.0
+Author: Mukti Subedi<suvedimukti@gmail.com>
+Maintainer: Mukti subedi <suvedimukti@gmail.com>
+Description: This package has a single function **convert_polygon2_kml**, which reads 
+    polygons files eiher "*.shp", "*.json", or "*.kml" format data into DJI Pilot2
+    compatible kml file.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
+Imports: 
+    sf
