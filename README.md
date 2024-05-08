@@ -6,7 +6,7 @@
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
-The **shape2kml** package serves a importnat purpose: converting (multi)polygon data into a KML format that is compatible with DJI drones. While **KML** or **KMZ** files exported from popular GIS Software like ArcGIS (ESRI), QGIS (QGIS Development TEam), or R (R Core Team) may not be directly compatible with DJI drones, this package bridges that gap.
+The **shape2kml** package serves a importnat purpose: converting (multi)polygon data into a KML format that is compatible with DJI drones. While **KML** or **KMZ** files exported from popular GIS Software like ArcGIS (ESRI), QGIS (QGIS Development Team), or R (R Core Team) may not be directly compatible with DJI drones, this package bridges that gap.
 
 When preparing flight plans for small Unmanned Aerial Vehicles (sUAVs), manually digitizing polygons using Google Earth Pro (GEP) to ensure compatibility with DJI's pilot app can be tedious. This function streamlines the process, making it significantly more efficient.
 
