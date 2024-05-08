@@ -3,5 +3,6 @@
 export(convert_polygon2_kml)
 export(gj_data)
 export(km_data)
+export(list_data_types)
 export(sh_data)
 importFrom(sf,st_read)

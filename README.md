@@ -1,16 +1,16 @@
-
-# shape2kml
+# Geospatial Polygons to DJI compatible KML (shape2kml)
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/shape2kml)](https://CRAN.R-project.org/package=shape2kml)
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/shape2kml)](https://CRAN.R-project.org/package=shape2kml) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+
 <!-- badges: end -->
 
 The **shape2kml** package serves a importnat purpose: converting (multi)polygon data into a KML format that is compatible with DJI drones. While **KML** or **KMZ** files exported from popular GIS Software like ArcGIS (ESRI), QGIS (QGIS Development Team), or R (R Core Team) may not be directly compatible with DJI drones, this package bridges that gap.
 
 When preparing flight plans for small Unmanned Aerial Vehicles (sUAVs), manually digitizing polygons using Google Earth Pro (GEP) to ensure compatibility with DJI's pilot app can be tedious. This function streamlines the process, making it significantly more efficient.
 
-The **shape2kml** can process any polygon data readable by the sf package, providing flexibility in data sources. However, at this time, only following file types are tested and are supported; they are types include feature classes (ESRI), shapefiles (ESRI), GeoJSON (OGC), and KML (Google). Users can seamlessly convert spatial data from various formats into DJI-compatible KML files, empowering smoother flight planning and execution for drone operations. 
+The **shape2kml** can process any polygon data readable by the sf package, providing flexibility in data sources. However, at this time, only following file types are tested and are supported; they are types include feature classes (ESRI), shapefiles (ESRI), GeoJSON (OGC), and KML (Google). Users can seamlessly convert spatial data from various formats into DJI-compatible KML files, empowering smoother flight planning and execution for drone operations.
 
 ## Installation
 
@@ -26,8 +26,11 @@ The package has three different data types
 
 ``` r
 library(shape2kml)
-file_pattern <- "\\.shp$|\\.geoson$|\\.kml$"
-files        <- list.files(path = './inst/testdata/', pattern = file_pattern, full.names = FALSE)
-print(files)
+library(sf)
+lets use the data geojson data gj_data
+
+dat <- shape2kml::gj_data
+
+plot(sf::st_geometry(dat))
 ```
 
