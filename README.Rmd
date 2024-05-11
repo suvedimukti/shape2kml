@@ -67,8 +67,9 @@ shp_dat = sf::st_read(test_shp)
 
 #Plot
 library(ggplot2)
-ggplot2::ggplot()+
+gp<- ggplot2::ggplot()+
   ggplot2::geom_sf(data = shp_dat)
+gp
 ```
 
 ## Convert data to DJI compatible kml file

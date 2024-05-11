@@ -81,18 +81,20 @@ shp_dat = sf::st_read(test_shp)
 
 #Plot
 library(ggplot2)
-ggplot2::ggplot()+
+gp<- ggplot2::ggplot()+
   ggplot2::geom_sf(data = shp_dat)
+gp
 ```
 
+<img src="man/figures/README-plot data-1.png" width="100%" />
 
 ## Convert data to DJI compatible kml file
 
 ``` r
 # lets convert all data types that can be read by `sf::st_read`
-shape2kml::convert_polygon2_kml(input_dir = sys_dat_path,output_dir = "",name_field = "tile_id",desc_field = "",recursive = FALSE)
+shape2kml::convert_polygon2_kml(input_dir = test_shp,output_dir = "",name_field = "tile_id",desc_field = "",recursive = FALSE)
 #> The following files were found in the input directory:
-#> C:/Users/suved/AppData/Local/R/win-library/4.4/shape2kml/testdata/test_fish_polygon.shp C:/Users/suved/AppData/Local/R/win-library/4.4/shape2kml/testdata/test_gjson_polygon.geojson C:/Users/suved/AppData/Local/R/win-library/4.4/shape2kml/testdata/test_kml_polygon.kml 
+#> C:/Users/suved/AppData/Local/R/win-library/4.4/shape2kml/testdata/test_fish_polygon.shp 
 #> 
 #> Transforming file geometries to KML...
 #> 
@@ -116,46 +118,5 @@ shape2kml::convert_polygon2_kml(input_dir = sys_dat_path,output_dir = "",name_fi
 #> Converting polygon 10 to KML
 #> Converting polygon 11 to KML
 #> File test_fish_polygon converted to KML.
-#> Reading layer `test_gjson_polygon' from data source 
-#>   `C:\Users\suved\AppData\Local\R\win-library\4.4\shape2kml\testdata\test_gjson_polygon.geojson' 
-#>   using driver `GeoJSON'
-#> Simple feature collection with 11 features and 5 fields
-#> Geometry type: POLYGON
-#> Dimension:     XY
-#> Bounding box:  xmin: 835122.6 ymin: 3760618 xmax: 835322.6 ymax: 3760768
-#> Projected CRS: NAD83 / UTM zone 16N
-#> Converting polygon 1 to KML
-#> Converting polygon 2 to KML
-#> Converting polygon 3 to KML
-#> Converting polygon 4 to KML
-#> Converting polygon 5 to KML
-#> Converting polygon 6 to KML
-#> Converting polygon 7 to KML
-#> Converting polygon 8 to KML
-#> Converting polygon 9 to KML
-#> Converting polygon 10 to KML
-#> Converting polygon 11 to KML
-#> File test_gjson_polygon converted to KML.
-#> Reading layer `test_fish_polygon' from data source 
-#>   `C:\Users\suved\AppData\Local\R\win-library\4.4\shape2kml\testdata\test_kml_polygon.kml' 
-#>   using driver `KML'
-#> Simple feature collection with 11 features and 2 fields
-#> Geometry type: MULTIPOLYGON
-#> Dimension:     XYZ
-#> Bounding box:  xmin: -83.37486 ymin: 33.93265 xmax: -83.37265 ymax: 33.93405
-#> z_range:       zmin: 0 zmax: 0
-#> Geodetic CRS:  WGS 84
-#> Converting polygon 1 to KML
-#> Converting polygon 2 to KML
-#> Converting polygon 3 to KML
-#> Converting polygon 4 to KML
-#> Converting polygon 5 to KML
-#> Converting polygon 6 to KML
-#> Converting polygon 7 to KML
-#> Converting polygon 8 to KML
-#> Converting polygon 9 to KML
-#> Converting polygon 10 to KML
-#> Converting polygon 11 to KML
-#> File test_kml_polygon converted to KML.
 #> Request completed, please check output
 ```
