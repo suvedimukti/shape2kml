@@ -24,6 +24,13 @@ convert_polygon2_kml <- function(input_dir, output_dir = NULL, name_field, desc_
   # create output directory default "Output_kml", when output directory is not provided
   #
   create_output_directory <- function(input_dir, output_dir = NULL) {
+    # check if input_dir is file path
+    if(!file.info(input_dir)$isdir){
+      input_dir <- dirname(input_dir)
+    } else {
+      input_dir <- input_dir
+    }
+
     input_dir <- gsub("/$", "", input_dir)
     if (is.null(output_dir) || output_dir == "") {
       output_dir <- file.path(input_dir, "Output_kml")
@@ -38,7 +45,24 @@ convert_polygon2_kml <- function(input_dir, output_dir = NULL, name_field, desc_
     }
     return(output_dir)
   }
+#---------------------------------- create a function to check if dir is file
 
+  # Function to read accepted files from a directory or a single file
+  check_dir <- function(input_dir) {
+    # check if the input_path is a directory or a file
+    if (file.info(input_dir)$isdir) {
+      # if input dir is a directory, list files with the accepted file format
+      all_files <- list.files(input_dir, pattern = file_pattern, full.names = TRUE, recursive = recursive)
+    } else {
+      # If it's a file, use it directly
+      all_files <- input_dir
+    }
+
+    # return files
+    return(all_files)
+  }
+
+#------------------------------------------------------------------------------
   # check if provided field and description info are available in the data
   # I used the term field as in Arcgis columns are referred to as field, and rows as records
   #
@@ -128,11 +152,12 @@ convert_polygon2_kml <- function(input_dir, output_dir = NULL, name_field, desc_
     cat("File", file_basename, "converted to KML.\n")
   }
 
-  # define filetype pattern
+  # define file type pattern
   file_pattern <- "\\.shp$|\\.geojson$|\\.kml$"
 
-  files <- list.files(input_dir, pattern = file_pattern, recursive = recursive, full.names = TRUE)
+  #files <- list.files(input_dir, pattern = file_pattern, recursive = recursive, full.names = TRUE)
 
+  files<- check_dir(input_dir = input_dir)
   if (length(files) == 0) {
     cat("No shapefiles found in the specified directory.\n")
     return()
