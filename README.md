@@ -13,7 +13,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 # Geospatial Polygons to DJI compatible KML (shape2kml)
 
-The **shape2kml** package serves a importnat purpose: converting
+The **shape2kml** package serves a important purpose: converting
 (multi)polygon data into a KML format that is compatible with DJI
 drones. While **KML** or **KMZ** files exported from popular GIS
 Software like ArcGIS (ESRI), QGIS (QGIS Development Team), or R (R Core
